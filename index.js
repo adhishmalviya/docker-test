@@ -7,7 +7,7 @@ const app = express();
 
 // app.use(express.urlencoded({ extended: false }));
 
-// Connect to MongoDB
+Connect to MongoDB
 // mongoose
 //   .connect(
 //     'mongodb://mongo:27017/docker-node-mongo',
