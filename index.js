@@ -19,7 +19,7 @@ const app = express();
 // const Item = require('./models/Item');
 
 app.get('/', (req, res) => {
-  res.send("HELLO A   last hello  5656 21!")
+  res.send("HELLO 3:15")
   // Item.find()
   //   .then(items => res.render('index', { items }))
   //   .catch(err => res.status(404).json({ msg: 'No items found' }));
