@@ -1,26 +1,21 @@
-name: Build Containers for Prod & Push to Dockerhub
-
+name: live ssh
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
       - master
-
 jobs:
-  build-and-deploy-back:
-    name: Build and Deploy Back-end
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v1
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: fuze365/curriculum-back
-        dockerfile: curriculum-back/Dockerfile
-        tags: latest
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          whoami
+          ls -al
+          mkdir AdhishMalviya
